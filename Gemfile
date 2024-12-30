@@ -4,7 +4,7 @@ source "https://rubygems.org"
 gem "rails", "~> 8.0.0"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
-gem 'country_select', '~> 8.0'
+gem 'country_select', '~> 10.0'
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
