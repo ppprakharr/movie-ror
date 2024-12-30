@@ -7,7 +7,21 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-User.create!(
-    email: 'test@gmail.com',
-    password: '123456'
-)
+
+5.times do |i|
+    user = User.create!(
+        email: "test#{i+1}@gmail.com",
+        password: '123456'
+    )
+
+    user.profile.update!(
+        first_name: Faker::Lorem.unique.sentence(word_count: 1),
+        last_name: Faker::Lorem.unique.sentence(word_count: 2),
+        address: Faker::Address.street_address,
+        city: Faker::Address.city,
+        state: Faker::Address.state,
+    country_code: Faker::Address.country_code
+    )
+
+    user.profile.image.attach(io: File.open("db/profile_pic/face_pic.png"), filename: user.profile.first_name)
+end
