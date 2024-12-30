@@ -24,7 +24,9 @@
   </head>
 
   <body>
+  <% if controller_name != 'sessions' && controller_name !='registrations'%>
     <%= render 'shared/navbar'%>
+    <%end%>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield%>
