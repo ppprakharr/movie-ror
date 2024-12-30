@@ -25,3 +25,15 @@
 
     user.profile.image.attach(io: File.open("db/profile_pic/face_pic.png"), filename: user.profile.first_name)
 end
+
+6.times do |i|
+    movie = Movie.create!(
+        name: Faker::Lorem.unique.sentence(word_count: 2),
+        country: 'India',
+        director: Faker::Lorem.unique.sentence(word_count: 2),
+        year_of_release: '2000',
+    )
+    movie.pictures.attach(io: File.open("db/movie_pictures/pic_1.png"), filename: movie.name)
+    movie.pictures.attach(io: File.open("db/movie_pictures/pic_2.png"), filename: movie.name)
+    movie.pictures.attach(io: File.open("db/movie_pictures/pic_3.png"), filename: movie.name)
+end
