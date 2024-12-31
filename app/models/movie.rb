@@ -5,4 +5,5 @@ class Movie < ApplicationRecord
     validates :year_of_release, presence: :true
     validates :country_code, presence: :true
     has_many_attached :pictures
+    has_many :reviews, dependent: :destroy
 end

@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   after_create :creatingProfileForUser       
   has_one :profile, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
 
   def creatingProfileForUser

@@ -8,7 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-5.times do |i|
+10.times do |i|
     user = User.create!(
         email: "test#{i+1}@gmail.com",
         password: '123456'
@@ -38,4 +38,17 @@ end
     movie.pictures.attach(io: File.open("db/movie_pictures/pic_2.png"), filename: movie.name)
     movie.pictures.attach(io: File.open("db/movie_pictures/pic_3.png"), filename: movie.name)
     movie.pictures.attach(io: File.open("db/movie_pictures/pic_4.png"), filename: movie.name)
+
+    6.times do
+        user = User.all.sample
+    
+        # Ensure no duplicate user-movie reviews are created
+        unless Review.exists?(user_id: user.id, movie_id: movie.id)
+          Review.create!(
+            description: Faker::Lorem.unique.sentence(word_count: 100),
+            movie_id: movie.id,
+            user_id: user.id
+          )
+        end
+    end
 end
