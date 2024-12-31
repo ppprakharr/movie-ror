@@ -32,8 +32,10 @@ end
         country_code: Faker::Address.country_code,
         director: Faker::Lorem.unique.sentence(word_count: 2),
         year_of_release: Faker::Date.between(from: '1960-01-01', to: '2024-11-30').year,
+        summary: Faker::Lorem.unique.sentence(word_count: 100)
     )
     movie.pictures.attach(io: File.open("db/movie_pictures/pic_1.png"), filename: movie.name)
     movie.pictures.attach(io: File.open("db/movie_pictures/pic_2.png"), filename: movie.name)
     movie.pictures.attach(io: File.open("db/movie_pictures/pic_3.png"), filename: movie.name)
+    movie.pictures.attach(io: File.open("db/movie_pictures/pic_4.png"), filename: movie.name)
 end
