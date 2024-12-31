@@ -1,35 +1,34 @@
-<div class="group relative cursor-pointer">
-  <%= link_to movie_path(movie), class: "block" do %>
-    <div class="relative overflow-hidden rounded-md bg-gray-200">
-      <div class="swiper">
-        <!-- Swiper Wrapper -->
-        <div class="swiper-wrapper">
-          <% if movie.pictures.present? %>
-            <% movie.pictures.each do |picture| %>
-              <div class="swiper-slide">
-                <%= image_tag picture, class: "h-full w-full object-cover object-center lg:h-full lg:w-full" %>
+<div class="group relative cursor-pointer border rounded-md">
+        <%= link_to movie_path(movie), class: "block" do %>
+          <div class="relative overflow-hidden rounded-md bg-gray-500">
+            <div class="swiper">
+              <!-- Swiper Wrapper -->
+              <div class="swiper-wrapper">
+                <% if movie.pictures.present? %>
+                  <% movie.pictures.each do |picture| %>
+                    <div class="swiper-slide">
+                      <%= image_tag picture, class: "h-full w-full object-cover object-center lg:h-full lg:w-full" %>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <div class="swiper-slide">
+                    <%= image_tag "default-image.jpg", alt: "No Image Available", class: "h-full w-full object-cover object-center lg:h-full lg:w-full" %>
+                  </div>
+                <% end %>
               </div>
-              <%end%>
-          <% else %>
-            <div class="swiper-slide">
-              <%= image_tag "default-image.jpg", alt: "No Image Available", class: "h-full w-full object-cover object-center lg:h-full lg:w-full" %>
+
+              <!-- Swiper Navigation Buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
             </div>
-            <%end%>
-
+          </div>
+        <% end %>
+        <div class="mt-2">
+          <div class="flex justify-between">
+            <h3 class="text-base font-medium text-gray-700 line-clamp-1">
+              <%= movie.name %>, <%= country_name(movie.country_code) %>
+            </h3>
         </div>
-
-        <!-- Swiper Navigation Buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-      </div>
+          <%# TODO: Add distance from property based on location %>
     </div>
-  <% end %>
-  <div class="mt-2">
-    <div class="flex justify-between">
-      <h3 class="text-base font-medium text-gray-700 line-clamp-1">
-        <%= movie.name %>, <%= movie.country %>
-      </h3>
-    </div>
-    <%# TODO: Add distance from property based on location %>
-  </div>
-</div>
+ </div>

@@ -1,41 +1,17 @@
-.swiper {
-  width: 100%;
-  aspect-ratio: 1/1;
-}
-
-.swiper:hover .swiper-button-next,
-.swiper:hover .swiper-button-prev {
-  display: block !important;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  display: none !important;
-  width: 28px !important;
-  height: 28px !important;
-  background-color: white;
-  border-radius: 50%;
-  border-width: 4px;
-  border-color: white;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-}
-
 .swiper-button-next {
-  background-image: url('/assets/next.svg') !important;
+  @apply bg-white rounded-full border-4;
+  background-image: url('/next.svg');
   background-size: cover;
-}
-
-.swiper-button-next::after {
-  content: '' !important;
+  width: 28px;
+  height: 28px;
+  display: none;
 }
 
 .swiper-button-prev {
-  background-image: url('/assets/prev.svg') !important;
+  @apply bg-white rounded-full border-4;
+  background-image: url('/prev.svg');
   background-size: cover;
-}
-
-.swiper-button-prev::after {
-  content: '' !important;
+  width: 28px;
+  height: 28px;
+  display: none;
 }
