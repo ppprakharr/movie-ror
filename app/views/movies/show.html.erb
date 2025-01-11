@@ -37,8 +37,30 @@
     <p class="mt-3 ml-5 mr-5 text-md font-light text-white"><%=@movie.summary%></p>
   </div>
   <div class="mt-5 border border-t border-white border-1"></div>
-  <div class="text-white">
-  review will come here
+    <div class=" mt-3 flex flex-col text-center justify-center">
+      <p class="text-4xl font-bold text-white">What others have to say</p>
+    </div>
+    <% if @movie.reviews.count<1%>
+      <p> No reviews to display </p>
+    <%else%>
+      <div class="grid grid-cols-2 gap-x-96 ml-10 mt-5 gap-y-10">
+        <%@movie.reviews.each do |review|%>
+          <div>
+            <div class="mt-3 flex flex-col">
+              <p class="flex text-white font-semibold items-center"><%=review.user.profile.first_name%> <%=review.user.profile.last_name%></p>
+              <p class="flex items-center text-sm text-gray-300 font-light"><%=review.user.profile.state%>, <%=country_name(review.user.profile.country_code)%></p>
+              <div class="flex mt-3 gap-x-0 fill-white text-white h-8 w-20"> 
+                <svg xmlns="http://www.w3.org/2000/svg" stroke-width="1">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                </svg>
+                <span class="mr-6 font-semibold text-md"><%=review.rating%>/5</span>
+              </div>  
+              <p class="text-md text-yellow-400"><%= review.description%></p>
+            </div>
+          </div>
+        <%end%>
+      </div>
+    <%end%>
   </div>
 </div>
 

@@ -47,7 +47,8 @@ end
           Review.create!(
             description: Faker::Lorem.unique.sentence(word_count: 100),
             movie_id: movie.id,
-            user_id: user.id
+            user_id: user.id,
+            rating: (1..5).to_a.sample
           )
         end
     end
