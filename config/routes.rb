@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   root "home#index"
 
   resource :profile, only: [:edit, :update]
-  resources :movies, only: [:show]
+  resources :movies, only: [:show] do
+    resources :reviews, only: [:create, :new]
+  end
 end

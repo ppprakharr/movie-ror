@@ -1,5 +1,5 @@
 <div class="bg-black border-4 border-yellow-600 rounded-lg">
-  <div class="bg-red-100">
+  <div class="bg-gray-300">
     <div class=" mx-5 mt-5 flex items-center">
         <p class="flex justify-between font-bold text-3xl text-black"> 
             <%=@movie.name%> <%=@movie.year_of_release%>
@@ -9,6 +9,13 @@
       <p class="font-semibold text-xl text-yellow-500"> Directed By: 
       <p class="ml-3 font-semibold text-xl text-black"><%=@movie.director%></p>
     </div>
+    <div>
+    <div class="mx-5 mt-2 flex items-center justify-between ">
+      <p>review total</p>
+      <%=link_to 'Submit Review', new_movie_review_path(@movie), class: 'border-2 border-black bg-yellow-400 mr-3 mb-2 hover:bg-yellow-500 cursor-pointer rounded px-3 py-2 text-black hover:text-white font-semibold' %>
+    </div>
+    </div>
+    <div class="flex"></div>
   </div>
 
   <div class="mt-5 flex justify-center h-screen">
